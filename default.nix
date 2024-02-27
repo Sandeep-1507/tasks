@@ -30,13 +30,16 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "regolith-linux";
     repo = "ilia";
-    rev = "b1290bc";
+    rev = "ubuntu/jammy";
     sha256 = "03nncqk8b075sxzjfa5azh6pxdqzirm8zj87zr6z6gxmbm6l25vi";
   };
 
-  buildInputs = [
+buildInputs = [
     pkgs.ninja
     pkgs.meson
+  ];
+
+ propagatedBuildInputs = [
     pkgs.glib
     pkgs.vala
     pkgs.pkg-config
@@ -49,6 +52,7 @@ pkgs.stdenv.mkDerivation {
     pkgs.gobject-introspection
   ];
 
+
   buildPhase = ''
     meson ..
     ninja 
@@ -59,4 +63,3 @@ pkgs.stdenv.mkDerivation {
     cp src/ilia $out/bin/
   '';
 }
-
