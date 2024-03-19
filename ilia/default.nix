@@ -2,7 +2,7 @@
 
 pkgs.stdenv.mkDerivation {
   pname = "ilia";
-  version = "v0.5";
+  version = "v1.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "regolith-linux";
