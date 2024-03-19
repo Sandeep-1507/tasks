@@ -37,7 +37,7 @@ buildPhase = ''
   '';
 
   installPhase = ''
-    make install DESTDIR=$out
+    make install DESTDIR=$out/bin
   '';
   
 
