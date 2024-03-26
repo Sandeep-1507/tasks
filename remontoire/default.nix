@@ -30,6 +30,10 @@ buildInputs = [
   
   installPhase = ''
     mkdir -p $out/bin
-    cp src/remontoire $out/bin   
+    mkdir -p $out/share
+    cp src/remontoire $out/share 
+    cp ../data/org.regolith-linux.remontoire.gschema.xml $out/share
+    glib-compile-schemas $out/share/ 
+    makeWrapper $out/share/remontoire $out/bin/remontoire --set GSETTINGS_SCHEMA_DIR $out/share
   '';
 }
